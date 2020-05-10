@@ -1,0 +1,28 @@
+git:
+	git add .
+	git commit 
+	git push
+prereq:
+	pipreqs --force .
+test:
+	python3 -m unittest
+coverage_test:
+	coverage run -m unittest
+	coverage report
+
+# mount USB
+mount:
+	sudo mount -t drvfs D: /mnt/d
+	
+unmount:
+	sudo unmount /mnt/d
+
+git_heroku:
+	git add .
+	git commit 
+	git push heroku master
+.PHONY: test
+# Create an virtual environment
+# python3 -m venv env
+# source env/bin/active
+# deactivate
